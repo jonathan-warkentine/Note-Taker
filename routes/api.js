@@ -18,7 +18,7 @@ router
 .get('/notes', (req, res) => {
     res.json(notes);
 })
-.post('/notes', (req, res) => {
+.post((req, res) => {
     req.body.id = uuidv4();
     notes.push(req.body);
     fs.writeFile('./db/db.json', JSON.stringify(notes, null, 4), error => {
